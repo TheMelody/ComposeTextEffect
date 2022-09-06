@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">ComposeTextEffect</string>
+
+    <string name="item_while_get_bounding_box">循环getBoundingBox：普通的文本跨行背景绘制</string>
+    <string name="item_draw_path">drawPath实现：普通文本跨行背景绘制</string>
+    <string name="item_ext_get_bounding_box">扩展getBoundingBox实现：文本跨行背景绘制</string>
+    <string name="item_wave_line_animation">查找指定内容，底部添加"波浪线动画"</string>
+    <string name="item_text_separation_anim">文字分离动画</string>
+    <string name="item_text_expand">展开/收起文本内容</string>
+
+    <string name="test_content_san_guo">话说天下大势，分久必合，合久必分。周末七国分争，并入于秦。及秦灭之后，楚、汉分争，又并入于汉。汉朝自高祖斩白蛇而起义，一统天下，后来光武中兴，传至献帝，遂分为三国。推其致乱之由，殆始于桓、灵二帝。桓帝禁锢善类，崇信宦官。及桓帝崩，灵帝即位，大将军窦武、太傅陈蕃共相辅佐。时有宦官曹节等弄权，窦武、陈蕃谋诛之，机事不密，反为所害，中涓自此愈横。</string>
+    <string name="test_content_san_guo_text_spans">周末七国分争，并入于秦。及秦灭之后，楚、汉分争，又并入于汉。汉朝自高祖斩白蛇而起义</string>
+
+    <string name="test_expand_content">话说天下大势，分久必合，合久必分。周末七国分争，并入于秦。及秦灭之后，楚、汉分争，又并入于汉。汉朝自高祖斩白蛇而起义，一统天下，后来光武中兴，传至献帝，遂分为三国。</string>
+
+</resources>

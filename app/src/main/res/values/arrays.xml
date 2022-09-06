@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="fun_item_list">
+        <item>@string/item_while_get_bounding_box</item>
+        <item>@string/item_draw_path</item>
+        <item>@string/item_ext_get_bounding_box</item>
+        <item>@string/item_wave_line_animation</item>
+        <item>@string/item_text_separation_anim</item>
+        <item>@string/item_text_expand</item>
+    </string-array>
+</resources>
