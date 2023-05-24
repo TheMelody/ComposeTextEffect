@@ -1,4 +1,4 @@
-package com.melody.text.effect.content
+package com.melody.expandable.text_compose
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.VectorConverter
@@ -20,18 +20,18 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.*
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.IntSize
-import com.melody.text.effect.components.detectTouchGestures
+import com.melody.expandable.text_compose.ext.detectTouchGestures
 import kotlin.math.roundToInt
 
 /**
  * 展开/收起，文本内容组件
- * @author TheMelody
+ * @author 被风吹过的夏天
  * email developer_melody@163.com
  * created 2022/9/6 14:51
  */
 @OptIn(ExperimentalTextApi::class)
 @Composable
-internal fun ExpandableText(
+fun ExpandableText(
     modifier: Modifier = Modifier,
     text: AnnotatedString,
     minimizedMaxLines: Int = 3,

@@ -1,18 +1,18 @@
-package com.melody.text.effect.components
+package com.melody.expandable.text_compose.ext
 
 import androidx.compose.foundation.gestures.awaitFirstDown
 import androidx.compose.foundation.gestures.forEachGesture
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.pointer.PointerEvent
 import androidx.compose.ui.input.pointer.PointerInputScope
-import androidx.compose.ui.util.fastAny
+import com.melody.expandable.text_compose.utils.fastAny
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 /**
  * GesturesExtensions
- * @author TheMelody
+ * @author 被风吹过的夏天
  * email developer_melody@163.com
  * created 2022/9/6 21:44
  */
