@@ -19,6 +19,7 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.*
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.IntSize
 import com.melody.expandable.text_compose.ext.detectTouchGestures
 import kotlin.math.roundToInt
@@ -150,7 +151,10 @@ fun ExpandableText(
         val textLayoutResult = contentTextMeasure.measure(
             text = text,
             style = textStyle,
-            size = IntSize(contentMeasureSize.width.roundToInt(), contentMeasureSize.height.roundToInt())
+            constraints = Constraints(
+                maxWidth = contentMeasureSize.width.roundToInt(),
+                maxHeight = contentMeasureSize.height.roundToInt()
+            )
         )
         textLayoutResultState = textLayoutResult
         // 计算文字第一行的顶部位置
