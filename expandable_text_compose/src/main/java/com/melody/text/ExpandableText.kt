@@ -1,4 +1,4 @@
-package com.melody.text.effect.content
+package com.melody.text
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.VectorConverter
@@ -19,19 +19,20 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.*
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.IntSize
-import com.melody.text.effect.components.detectTouchGestures
+import com.melody.text.ext.detectTouchGestures
 import kotlin.math.roundToInt
 
 /**
  * 展开/收起，文本内容组件
- * @author TheMelody
+ * @author 被风吹过的夏天
  * email developer_melody@163.com
  * created 2022/9/6 14:51
  */
 @OptIn(ExperimentalTextApi::class)
 @Composable
-internal fun ExpandableText(
+fun ExpandableText(
     modifier: Modifier = Modifier,
     text: AnnotatedString,
     minimizedMaxLines: Int = 3,
@@ -150,7 +151,10 @@ internal fun ExpandableText(
         val textLayoutResult = contentTextMeasure.measure(
             text = text,
             style = textStyle,
-            size = IntSize(contentMeasureSize.width.roundToInt(), contentMeasureSize.height.roundToInt())
+            constraints = Constraints(
+                maxWidth = contentMeasureSize.width.roundToInt(),
+                maxHeight = contentMeasureSize.height.roundToInt()
+            )
         )
         textLayoutResultState = textLayoutResult
         // 计算文字第一行的顶部位置
