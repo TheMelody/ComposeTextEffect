@@ -29,5 +29,45 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
+      - name: Clean with Gradle
+        run: ./gradlew clean
+
+      - name: Build Signed APK
+        uses: victorbnl/build-signed-apk@main
+        with:
+          keystore_b64: ${{ secrets.BUILD_SIGN_KEY_STOREB64 }}
+          keystore_password: ${{ secrets.BUILD_SIGN_KEY_STORE_PASSWORD }}
+          key_alias: ${{ secrets.BUILD_SIGN_KEY_STORE_KEY_ALIAS }}
+          key_password: ${{ secrets.BUILD_SIGN_KEY_STORE_KEY_PASSWORD }}
+
+      - name: Create a Release APK
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          artifacts: "app/build/outputs/apk/release/*.apk"
+          artifactErrorsFailBuild: true
+          body:  |
+            ### 注意
+            - **可折叠的组合项Text**，依赖如下：
+            ```groovy
+              implementation "io.github.TheMelody:expandable_text_compose:1.0.0"
+            ```
+            - 代码使用方式如下：
+            ```kt
+              ExpandableText(
+                modifier = Modifier
+                .verticalScroll(rememberScrollState())
+                .padding(16.dp)
+                .fillMaxWidth(),
+                text = buildAnnotatedString { append("请输入你的超长文本，来吧展示，省略更多内容...") },
+                textStyle = TextStyle(color = Color.Black, fontSize = 14.sp),
+                expandStateText = "展开",
+                collapseStateText = "收起"
+              )
+            ```
+          token: ${{ secrets.github_token }}
+          commit: master
+          tag: ${{ github.ref_name }}
+
       - name: "Publish ComposeExpandableText"
         run: ./gradlew clean assembleRelease androidJavaDocJar androidSourcesJar generatePomFileForNexusPublication publishNexusPublicationToSonatypeRepository closeAndReleaseSonatypeStagingRepository
