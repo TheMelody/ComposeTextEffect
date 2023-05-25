@@ -1,4 +1,4 @@
-package com.melody.expandable.text_compose
+package com.melody.text
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.VectorConverter
@@ -21,7 +21,7 @@ import androidx.compose.ui.text.*
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.IntSize
-import com.melody.expandable.text_compose.ext.detectTouchGestures
+import com.melody.text.ext.detectTouchGestures
 import kotlin.math.roundToInt
 
 /**

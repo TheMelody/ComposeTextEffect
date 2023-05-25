@@ -1,11 +1,11 @@
-package com.melody.expandable.text_compose.ext
+package com.melody.text.ext
 
 import androidx.compose.foundation.gestures.awaitFirstDown
 import androidx.compose.foundation.gestures.forEachGesture
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.pointer.PointerEvent
 import androidx.compose.ui.input.pointer.PointerInputScope
-import com.melody.expandable.text_compose.utils.fastAny
+import com.melody.text.utils.fastAny
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

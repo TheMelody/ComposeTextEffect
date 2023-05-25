@@ -1,4 +1,4 @@
-package com.melody.expandable.text_compose.utils
+package com.melody.text.utils
 
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.contract

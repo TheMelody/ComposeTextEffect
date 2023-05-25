@@ -8,7 +8,7 @@ afterEvaluate {
 }
 
 android {
-    namespace 'com.melody.expandable.text_compose'
+    namespace 'com.melody.text'
     compileSdk rootProject.ext.libraryInfo.compileSdk
     defaultConfig {
         minSdk rootProject.ext.libraryInfo.minSdk
