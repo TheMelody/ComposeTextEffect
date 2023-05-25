@@ -32,14 +32,32 @@ jobs:
       - name: Clean with Gradle
         run: ./gradlew clean
 
-      - name: ReleaseTask
+
+      # 对安装包进行签名
+      - name: Build Signed APK
+        uses: victorbnl/build-signed-apk@main
+        with:
+          keystore_b64: ${{ secrets.BUILD_SIGN_KEY_STOREB64 }}
+          keystore_password: ${{ secrets.BUILD_SIGN_KEY_STORE_PASSWORD }}
+          key_alias: ${{ secrets.BUILD_SIGN_KEY_STORE_KEY_ALIAS }}
+          key_password: ${{ secrets.BUILD_SIGN_KEY_STORE_KEY_PASSWORD }}
+
+      # 创建并提交签名后的APK包和源码提交至对应ref_name的tag
+      - name: Create a Release APK
         uses: ncipollo/release-action@v1
         with:
           allowUpdates: true
+          # 安装包
+          artifacts: "app/build/outputs/apk/release/*.apk"
+          artifactErrorsFailBuild: true
           body:  |
             ### 注意
-            - 该库能力只提供：**可折叠的组合项Text**，使用方式如下：
+            - **可折叠的组合项Text**，依赖如下：
+            ```groovy
+              implementation "io.github.TheMelody:expandable_text_compose:1.0.0"
             ```
+            - 代码使用方式如下：
+            ```kt
               ExpandableText(
                 modifier = Modifier
                 .verticalScroll(rememberScrollState())
